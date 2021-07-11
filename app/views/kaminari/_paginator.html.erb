@@ -1,0 +1,11 @@
+<%= paginator.render do -%>
+  <ul class="pagination pagination-sm no-margin pull-right">
+    <%= prev_page_tag unless current_page.first? %>
+    <% each_page do |page| -%>
+      <%= page_tag page %>
+    <% end -%>
+    <% unless current_page.out_of_range? %>
+      <%= next_page_tag unless current_page.last? %>
+    <% end %>
+  </ul>
+<% end -%>

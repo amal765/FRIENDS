@@ -1,0 +1,62 @@
+/*
+ *= require adminlte.min
+ *= require bootstrap.min
+ *= require skin-purple-light.min
+ *= require font-awesome
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.progress-bar-yellow {
+	background-color: #f39c12 !important;
+}
+
+.help-block {
+  color: #dd4b39;
+}
+
+.wrapper {
+	min-height: 100vh !important;
+}
+
+.field_with_errors textarea {
+	border: 1px solid red !important;
+}
+
+.field_with_errors input {
+	border: 1px solid red !important;
+}
+
+.nested_comments {
+  margin-left: 25px !important;
+}
+
+.nested_comments .nested_comments .nested_comments .nested_comments {
+  margin-left: 0;
+}
+
+.post {
+	border: none !important;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  border-radius: 20px;
+}
+
+.post {
+  border: none !important;
+  margin-bottom: 15px;
+  padding-bottom: 0px;
+}
+
+.bottom_mrgn {
+  margin-bottom: 10px;
+}

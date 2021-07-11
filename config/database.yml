@@ -1,0 +1,18 @@
+default: &default
+  encoding: unicode
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  
+
+development:
+  <<: *default
+  database: friends_development
+
+test:
+  <<: *default
+  database: friends_development
+
+production:
+  <<: *default
+  database: friends_development

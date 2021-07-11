@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>FORUM</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
+
+  </head>
+
+  <body class="hold-transition skin-purple-light sidebar-mini">
+    <div class="wrapper">
+      <% if user_signed_in? %>
+      <header class="main-header">
+        <a href="<%= root_path %>" class="logo">
+          <span class="logo-mini"><b>F</b>RIENDS</span>
+          <span class="logo-lg"><b>F</b>RIENDS</span>
+        </a>
+        <%= render 'shared/nav_menu' %>
+      </header>
+      <%= render "shared/side_menu" %>
+      <div class="content-wrapper">
+        <% flash.each do |key, value| %>
+        <div class="alert alert-info alert-dismissible">
+          <%= value %> <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
+      <% else %>
+      <%= yield %>
+      <% end %>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      window.setInterval(function () {
+        $.ajax({
+          type: "get",
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+          url: `/messages/unread_messages`,
+          success: function (data) {
+            $('span#notification').text(data.count)
+          }
+        });
+   
+      }, 60000);
+    });
+  </script>
+</html>
+
+<% cache 'modals' do %>
+<div class="modal fade" id="new-form">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+<% end %>

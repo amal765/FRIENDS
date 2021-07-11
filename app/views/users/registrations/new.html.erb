@@ -1,0 +1,67 @@
+<div class="login-box">
+  <div class="login-logo">
+    <a href="<%= new_user_session_path %>"><b>F</b>RIENDS</a>
+  </div>
+  <div class="login-box-body">
+     <p class="login-box-msg">Sign up to start your session</p>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group has-feedback">
+        <%= f.text_field :name, autofocus: true, placeholder: "name*", class: "form-control" %>
+        <i class="fa fa-user form-control-feedback"></i>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.email_field :email, autocomplete: "email", placeholder: "email*", class: "form-control" %>
+        <i class="fa fa-envelope form-control-feedback"></i>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.text_field :street, autofocus: true, placeholder: "street", class: "form-control" %>
+        <i class="fa fa-home form-control-feedback"></i>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.text_field :city, autofocus: true, placeholder: "city", class: "form-control" %>
+        <i class="fa fa-home form-control-feedback"></i>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.text_field :state, autofocus: true, placeholder: "state", class: "form-control" %>
+        <i class="fa fa-home form-control-feedback"></i>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.text_field :country, autofocus: true, placeholder: "country", class: "form-control" %>
+        <i class="fa fa-home form-control-feedback"></i>
+      </div>
+
+      <div class="form-group has-feedback">
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "password*", class: "form-control" %>
+        <i class="fa fa-lock form-control-feedback"></i>
+      </div>
+
+      <div class="form-group has-feedback">
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password confirmation*", class: "form-control" %>
+        <i class="fa fa-lock form-control-feedback"></i>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <label>
+              <%= render "users/shared/links" %>
+            </label>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <%= f.submit "Sign Up", class: "btn btn-primary btn-block btn-flat" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

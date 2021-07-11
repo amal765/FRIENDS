@@ -1,0 +1,27 @@
+
+<div class="box box-success">
+  <div class="box-header">
+    <div class="user-block">
+      <%= image_tag('avatar.png') %>
+      <span class="username">
+        <a href="#"><%= @message.sender_name %></a>
+      </span>
+      <span class="time pull-right"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(@message.created_at) %> ago</span>
+    </div>
+    <div>
+      <br />
+      <h3 class="box-title"><%= @message.title %></h3>
+    </div>
+  </div>
+  <div class="box-body">
+    <p><%= @message.content.html_safe %></p>
+  </div>
+  <div class="box-footer">
+    <div class="row bottom_mrgn">
+    </div>
+    <ul class="list-inline">
+      <li class="pull-right">
+      </li>
+    </ul>
+  </div>
+</div>
