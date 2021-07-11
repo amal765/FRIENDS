@@ -21,6 +21,7 @@ gem 'pundit'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'ckeditor', '~> 4.2'
+gem 'dotenv', '~> 2.7', '>= 2.7.5'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'kaminari'
