@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def check_unread_messages
+    return unless user_signed_in?
+
     @notifications = current_user.unread_messages
   end
 end
